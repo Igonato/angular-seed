@@ -1,24 +1,43 @@
 # Legacy AngularJS App
 
-This repo is a collection of challenges that one may face when updating
-an existing AngularJS app to a modern Webpack-based setup.
+This repo is a collection of challenges that one may face when updates
+an existing AngularJS project to a modern Webpack-based setup.
 
 Based on [angular/angular-seed](https://github.com/angular/angular-seed).
 
 
-<!-- MarkdownTOC -->
-
-- [Challenges](#challenges)
-    - [templateUrl resolution](#templateurl-resolution)
-
-<!-- /MarkdownTOC -->
-
-
 # Challenges
 
-## templateUrl resolution
+## templateUrl Resolution
 
-There is a good chance that templateUrl's in a legacy project wont work with
-a [template-loader](https://www.npmjs.com/package/angular2-template-loader)
+There is a good chance that `templateUrl`s in a legacy project will not work
+with an [angular-template-loader][1]. Good news are that we can archive the 
+same thing with more control using [string-replace-loader]:
+
+```ts
+{
+    // Transform `templateUrl: 'url'` to `template: require('path')`, 
+    // but skip for url values that startWith 'cache'
+    loader: 'string-replace-loader',
+    options: {
+        search: /templateUrl\s*:\s*['"`](.*?)['"`]\s*([,}])/gm,
+        replace: (match, url, ending) =>
+            url.startsWith('cache') ? match :
+            `template: require('foo/${ url }')${ ending }`,
+    },
+}
+```
+
+[1]: https://www.npmjs.com/search?q=angular-template-loader
+[string-replace-loader]: https://github.com/Va1/string-replace-loader
 
 
+## Stylesheets
+
+For a good measure, let's ensure that there are support for common
+preprocessing languages/tools: [Sass], [Less], [Stylus] and [Autoprefixer].
+
+[Sass]: http://sass-lang.com/
+[Less]: http://lesscss.org/
+[Stylus]: http://stylus-lang.com/
+[Autoprefixer]: https://autoprefixer.github.io/

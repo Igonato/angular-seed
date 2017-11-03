@@ -1,5 +1,10 @@
 /* app css stylesheet */
 
+/* autoprefixer test */
+:fullscreen a {
+    display: flex;
+}
+
 .menu {
   list-style: none;
   border-bottom: 0.1em solid black;
