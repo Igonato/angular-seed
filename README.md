@@ -43,12 +43,14 @@ same thing with more control using [string-replace-loader]:
 [string-replace-loader]: https://github.com/Va1/string-replace-loader
 
 
-## Stylesheets
+## Preprocessors
 
 For a good measure, let's ensure that there are support for common
-preprocessing languages/tools: [Sass], [Less], [Stylus] and [Autoprefixer].
+preprocessing languages/tools: [Sass], [Less], [Stylus] and [Autoprefixer] 
+for styles and [Pug] for templates.
 
 [Sass]: http://sass-lang.com/
 [Less]: http://lesscss.org/
 [Stylus]: http://stylus-lang.com/
 [Autoprefixer]: https://autoprefixer.github.io/
+[Pug]: https://pugjs.org/

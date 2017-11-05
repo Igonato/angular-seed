@@ -12,6 +12,16 @@ angular.module('myApp.templateurls', ['ngRoute'])
     templateUrl: 'cache/templateurls.html',
     controller: 'TemplateUrlsCtrl'
   });
+
+  $routeProvider.when('/templateurls/jade', {
+    templateUrl: 'templateurls/templateurls.jade',
+    controller: 'TemplateUrlsCtrl'
+  });
+
+  $routeProvider.when('/templateurls/pug', {
+    templateUrl: 'templateurls/templateurls.pug',
+    controller: 'TemplateUrlsCtrl'
+  });
 }])
 
 .run(function($templateCache) {
