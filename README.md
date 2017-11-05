@@ -1,12 +1,23 @@
 # Legacy AngularJS App
 
-This repo is a collection of challenges that one may face when updates
-an existing AngularJS project to a modern Webpack-based setup.
+This "legacy" AngularJS project is a collection of tests/challenges for
+[this](https://github.com/Igonato/legacy-angularjs-webpack) angularjs 
+webpack setup project.
 
 Based on [angular/angular-seed](https://github.com/angular/angular-seed).
 
 
 # Challenges
+
+## Bower
+
+Setup should work with bower
+
+
+### Tricky Bower Components
+
+TODO: angular-moment, angualr-pdf
+
 
 ## templateUrl Resolution
 
